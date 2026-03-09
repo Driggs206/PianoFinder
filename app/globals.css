@@ -1,0 +1,288 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Fonts ── */
+:root {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+}
+
+/* ════════════════════════════════════════════════════════
+   THEME DEFINITIONS
+   Each theme sets CSS variables consumed by Tailwind
+   utility classes via the config.
+════════════════════════════════════════════════════════ */
+
+/* 1. Ebony & Ivory (default dark) */
+[data-theme="ebony-ivory"], :root {
+  --color-bg:           #0d0d10;
+  --color-surface:      #13131a;
+  --color-elevated:     #1a1a24;
+  --color-border:       #252530;
+  --color-border-strong:#35354a;
+  --color-ink:          #f0ece4;
+  --color-ink-muted:    #8a8799;
+  --color-ink-faint:    #44424f;
+  --color-accent:       #c9a227;
+  --color-accent-light: #e2bb4a;
+  --color-accent-dark:  #9a7a1a;
+  --color-accent-text:  #0d0d10;
+  --map-filter: none;
+}
+
+/* 2. Grand Concert */
+[data-theme="grand-concert"] {
+  --color-bg:           #0a0e1a;
+  --color-surface:      #0f1525;
+  --color-elevated:     #161e32;
+  --color-border:       #1e2a42;
+  --color-border-strong:#2a3a58;
+  --color-ink:          #f2ead8;
+  --color-ink-muted:    #8a8070;
+  --color-ink-faint:    #4a4438;
+  --color-accent:       #d4a853;
+  --color-accent-light: #e8c47a;
+  --color-accent-dark:  #a07a30;
+  --color-accent-text:  #0a0e1a;
+  --map-filter: hue-rotate(200deg) saturate(0.6) brightness(0.9);
+}
+
+/* 3. Jazz Club */
+[data-theme="jazz-club"] {
+  --color-bg:           #12090a;
+  --color-surface:      #1c0f0d;
+  --color-elevated:     #251512;
+  --color-border:       #3a1f1a;
+  --color-border-strong:#52302a;
+  --color-ink:          #f5dfc0;
+  --color-ink-muted:    #a08060;
+  --color-ink-faint:    #5a3f30;
+  --color-accent:       #e07020;
+  --color-accent-light: #f09040;
+  --color-accent-dark:  #b05010;
+  --color-accent-text:  #12090a;
+  --map-filter: sepia(0.4) saturate(0.7) brightness(0.8);
+}
+
+/* 4. Sheet Music (light) */
+[data-theme="sheet-music"] {
+  --color-bg:           #f8f5ef;
+  --color-surface:      #ffffff;
+  --color-elevated:     #f0ece4;
+  --color-border:       #ddd8ce;
+  --color-border-strong:#c8c0b0;
+  --color-ink:          #1a1814;
+  --color-ink-muted:    #5a5448;
+  --color-ink-faint:    #9a9488;
+  --color-accent:       #1a1814;
+  --color-accent-light: #3a3830;
+  --color-accent-dark:  #000000;
+  --color-accent-text:  #f8f5ef;
+  --map-filter: invert(1) hue-rotate(180deg) brightness(1.1) saturate(0.8);
+}
+
+/* 5. Nocturne */
+[data-theme="nocturne"] {
+  --color-bg:           #05080f;
+  --color-surface:      #080d18;
+  --color-elevated:     #0d1525;
+  --color-border:       #141f35;
+  --color-border-strong:#1e2e4a;
+  --color-ink:          #d8e8f8;
+  --color-ink-muted:    #7090b0;
+  --color-ink-faint:    #304560;
+  --color-accent:       #6090d0;
+  --color-accent-light: #80b0e8;
+  --color-accent-dark:  #4070b0;
+  --color-accent-text:  #05080f;
+  --map-filter: hue-rotate(220deg) saturate(0.8) brightness(0.85);
+}
+
+/* 6. Ragtime */
+[data-theme="ragtime"] {
+  --color-bg:           #1a1408;
+  --color-surface:      #241c0c;
+  --color-elevated:     #2e2412;
+  --color-border:       #3e3018;
+  --color-border-strong:#544020;
+  --color-ink:          #f5e8c8;
+  --color-ink-muted:    #a09060;
+  --color-ink-faint:    #605030;
+  --color-accent:       #c88020;
+  --color-accent-light: #e0a040;
+  --color-accent-dark:  #a06010;
+  --color-accent-text:  #1a1408;
+  --map-filter: sepia(0.6) saturate(0.8) brightness(0.75);
+}
+
+/* 7. Blue Note */
+[data-theme="blue-note"] {
+  --color-bg:           #080c14;
+  --color-surface:      #0c1220;
+  --color-elevated:     #101828;
+  --color-border:       #182438;
+  --color-border-strong:#20304a;
+  --color-ink:          #e8f0f8;
+  --color-ink-muted:    #6080a8;
+  --color-ink-faint:    #304060;
+  --color-accent:       #2060c0;
+  --color-accent-light: #4080e0;
+  --color-accent-dark:  #1040a0;
+  --color-accent-text:  #e8f0f8;
+  --map-filter: hue-rotate(200deg) saturate(1.2) brightness(0.8);
+}
+
+/* 8. Fortissimo */
+[data-theme="fortissimo"] {
+  --color-bg:           #0e0808;
+  --color-surface:      #160c0c;
+  --color-elevated:     #1e1010;
+  --color-border:       #301818;
+  --color-border-strong:#442020;
+  --color-ink:          #faf0f0;
+  --color-ink-muted:    #a07070;
+  --color-ink-faint:    #604040;
+  --color-accent:       #cc2020;
+  --color-accent-light: #e04040;
+  --color-accent-dark:  #aa1010;
+  --color-accent-text:  #faf0f0;
+  --map-filter: hue-rotate(320deg) saturate(0.8) brightness(0.8);
+}
+
+/* 9. Synthesizer */
+[data-theme="synthesizer"] {
+  --color-bg:           #050810;
+  --color-surface:      #080d18;
+  --color-elevated:     #0c1220;
+  --color-border:       #0f1a2e;
+  --color-border-strong:#142238;
+  --color-ink:          #c0f8f0;
+  --color-ink-muted:    #408880;
+  --color-ink-faint:    #205048;
+  --color-accent:       #00e8c8;
+  --color-accent-light: #40f8e0;
+  --color-accent-dark:  #00b8a0;
+  --color-accent-text:  #050810;
+  --map-filter: hue-rotate(160deg) saturate(1.5) brightness(0.75);
+}
+
+/* 10. Impressionist */
+[data-theme="impressionist"] {
+  --color-bg:           #13100f;
+  --color-surface:      #1c1815;
+  --color-elevated:     #242018;
+  --color-border:       #342e24;
+  --color-border-strong:#443c2e;
+  --color-ink:          #f0e8e0;
+  --color-ink-muted:    #988880;
+  --color-ink-faint:    #584e48;
+  --color-accent:       #c09080;
+  --color-accent-light: #d8b0a0;
+  --color-accent-dark:  #a07060;
+  --color-accent-text:  #13100f;
+  --map-filter: sepia(0.3) saturate(0.9) brightness(0.85);
+}
+
+/* ════════════════════════════════════════════════════════
+   BASE STYLES — use CSS variables
+════════════════════════════════════════════════════════ */
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+}
+
+/* ── Leaflet map theming ── */
+.leaflet-container {
+  background: var(--color-bg);
+  font-family: var(--font-sans);
+}
+.leaflet-tile-pane {
+  filter: var(--map-filter);
+}
+.leaflet-popup-content-wrapper {
+  background: var(--color-elevated);
+  color: var(--color-ink);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+}
+.leaflet-popup-tip {
+  background: var(--color-elevated);
+}
+.leaflet-popup-close-button {
+  color: var(--color-ink-muted) !important;
+}
+.leaflet-control-attribution {
+  background: rgba(0,0,0,0.7) !important;
+  color: var(--color-ink-muted) !important;
+  font-size: 10px;
+}
+.leaflet-control-attribution a {
+  color: var(--color-accent) !important;
+}
+.leaflet-bar a {
+  background: var(--color-elevated) !important;
+  color: var(--color-ink) !important;
+  border-color: var(--color-border) !important;
+}
+.leaflet-bar a:hover {
+  background: var(--color-border) !important;
+}
+
+/* ── Custom piano marker ── */
+.piano-marker {
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  border: 2px solid rgba(0,0,0,0.3);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+.piano-marker span { transform: rotate(45deg); font-size: 14px; display: block; }
+.piano-marker.confirmed { background: #4ade80; }
+.piano-marker.likely    { background: #facc15; }
+.piano-marker.mentioned { background: #f97316; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border-strong); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-ink-faint); }
+
+/* ── Focus ── */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ── Skeleton shimmer ── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg,
+    var(--color-elevated) 25%,
+    var(--color-border) 50%,
+    var(--color-elevated) 75%
+  );
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: 4px;
+}
+
+/* ── Fade in ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeIn 0.25s ease forwards; }
+
+/* ── Theme transition ── */
+html { transition: background-color 0.3s ease, color 0.3s ease; }

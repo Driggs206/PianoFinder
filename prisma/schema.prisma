@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model GeoCache {
+  id          String   @id @default(cuid())
+  queryNorm   String   @unique
+  lat         Float
+  lon         Float
+  displayName String
+  cachedAt    DateTime @default(now())
+
+  @@index([queryNorm])
+}
+
+model SearchCache {
+  id        String   @id @default(cuid())
+  cacheKey  String   @unique
+  payload   String
+  cachedAt  DateTime @default(now())
+  expiresAt DateTime
+
+  @@index([cacheKey])
+  @@index([expiresAt])
+}
